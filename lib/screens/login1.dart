@@ -3,9 +3,37 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:vendor_delivery/screens/login2.dart';
 import 'package:vendor_delivery/screens/otp.dart';
+import 'package:http/http.dart';
 
 class LoginPage1 extends StatelessWidget {
-  const LoginPage1({Key? key}) : super(key: key);
+  LoginPage1({Key? key}) : super(key: key);
+  TextEditingController numberController = TextEditingController();
+
+  void login(String number) async {
+    print("login $number");
+    try {
+      Response response = await post(
+        Uri.parse('https://allinonevendor.herokuapp.com/v/sendOTP'),
+        body: {'number': number},
+      );
+
+      print("response: $response");
+
+      if (response.statusCode == 200) {
+        print("OTP Sent successfully");
+        // ignore: use_build_context_synchronously
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) =>
+                    Otp(number: numberController.text.toString())));
+      } else {
+        print("Login failed");
+      }
+    } catch (e) {
+      print(e.toString());
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -144,8 +172,7 @@ class LoginPage1 extends StatelessWidget {
                         height: 60,
                         minWidth: 150,
                         onPressed: () {
-                          Navigator.push(context,
-                              MaterialPageRoute(builder: (context) => Otp()));
+                           login(numberController.text.toString());
                         },
                         color: Colors.red,
                         elevation: 5,

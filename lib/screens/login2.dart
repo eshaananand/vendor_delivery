@@ -3,7 +3,26 @@ import 'package:flutter/material.dart';
 import 'package:vendor_delivery/screens/otp.dart';
 
 class LoginPage2 extends StatelessWidget {
-  const LoginPage2({Key? key}) : super(key: key);
+  LoginPage2({Key? key}) : super(key: key);
+  TextEditingController referralCode = TextEditingController();
+  TextEditingController numberController = TextEditingController();
+
+  void login(String number) async {
+    try {
+      Response response = await post(
+        Uri.parse('https://allinonevendor.herokuapp.com/v/sendOTP'),
+        body: {'number': number},
+      );
+
+      if (response.statusCode == 200) {
+        print("OTP Sent successfully");
+      } else {
+        print("Login failed");
+      }
+    } catch (e) {
+      print(e.toString());
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -128,8 +147,13 @@ class LoginPage2 extends StatelessWidget {
                         height: 60,
                         minWidth: 150,
                         onPressed: () {
-                          Navigator.push(context,
-                              MaterialPageRoute(builder: (context) => Otp()));
+                          login(numberController.text.toString());
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Otp(
+                                      number:
+                                          numberController.text.toString())));
                         },
                         color: Colors.red,
                         elevation: 5,
