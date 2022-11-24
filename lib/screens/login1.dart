@@ -9,7 +9,7 @@ class LoginPage1 extends StatelessWidget {
   LoginPage1({Key? key}) : super(key: key);
   TextEditingController numberController = TextEditingController();
 
-  void login(String number) async {
+  void login(String number, BuildContext context) async {
     print("login $number");
     try {
       Response response = await post(
@@ -22,11 +22,11 @@ class LoginPage1 extends StatelessWidget {
       if (response.statusCode == 200) {
         print("OTP Sent successfully");
         // ignore: use_build_context_synchronously
-        Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (context) =>
-                    Otp(number: numberController.text.toString())));
+        // Navigator.push(
+        //     context,
+        //     MaterialPageRoute(
+        //         builder: (context) =>
+        //             Otp(number: numberController.text.toString())));
       } else {
         print("Login failed");
       }
@@ -172,7 +172,14 @@ class LoginPage1 extends StatelessWidget {
                         height: 60,
                         minWidth: 150,
                         onPressed: () {
-                           login(numberController.text.toString());
+                          login(numberController.text.toString(), context);
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Otp(
+                                      // number:
+                                      //     numberController.text.toString()
+                                      )));
                         },
                         color: Colors.red,
                         elevation: 5,

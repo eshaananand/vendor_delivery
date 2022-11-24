@@ -41,6 +41,7 @@ dependencies:
   flutter_svg: ^1.1.1+1
   google_maps_flutter: ^2.1.8
   dropdown_search: ^5.0.3
+  http:
 
 dev_dependencies:
   flutter_test:

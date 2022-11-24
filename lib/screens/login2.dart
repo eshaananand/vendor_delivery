@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart';
 import 'package:vendor_delivery/screens/otp.dart';
 
 class LoginPage2 extends StatelessWidget {
@@ -73,10 +74,7 @@ class LoginPage2 extends StatelessWidget {
                               color: Colors.blue,
                               size: 50,
                             ),
-                            Icon(
-                              Icons.g_mobiledata,
-                              size: 50,
-                            ),
+                            Image.asset("assets/google.png")
                           ],
                         )
                       ],
@@ -85,6 +83,7 @@ class LoginPage2 extends StatelessWidget {
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: 40),
                     child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       // TODO: mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: <Widget>[
                         Text(
@@ -152,8 +151,9 @@ class LoginPage2 extends StatelessWidget {
                               context,
                               MaterialPageRoute(
                                   builder: (context) => Otp(
-                                      number:
-                                          numberController.text.toString())));
+                                      // number:
+                                      //     numberController.text.toString()
+                                      )));
                         },
                         color: Colors.red,
                         elevation: 5,
