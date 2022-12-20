@@ -2,9 +2,15 @@
 
 import 'package:flutter/material.dart';
 
-class Profile extends StatelessWidget {
+class Profile extends StatefulWidget {
   const Profile({Key? key}) : super(key: key);
 
+  @override
+  State<Profile> createState() => _ProfileState();
+}
+
+class _ProfileState extends State<Profile> {
+  int onUpdate = 0;
   @override
   Widget build(BuildContext context) {
     double h(double height) {
@@ -100,6 +106,10 @@ class Profile extends StatelessWidget {
                             color: Colors.red,
                           ),
                         ),
+                        onChanged: (value) => {
+                          onUpdate = 1,
+                          setState(() {}),
+                        },
                       ),
                       Padding(
                         padding: EdgeInsets.only(top: 35.0),
@@ -115,6 +125,10 @@ class Profile extends StatelessWidget {
                         decoration: InputDecoration(
                           hintText: "1234566788",
                         ),
+                        onChanged: (value) => {
+                          onUpdate = 1,
+                          setState(() {}),
+                        },
                       ),
                       Padding(
                         padding: EdgeInsets.only(top: 35.0),
@@ -130,9 +144,13 @@ class Profile extends StatelessWidget {
                         decoration: InputDecoration(
                           hintText: "swayamverma2002@gmail.com",
                         ),
+                        onChanged: (value) => {
+                          onUpdate = 1,
+                          setState(() {}),
+                        },
                       ),
                       Padding(
-                        padding: EdgeInsets.only(top: 35.0),
+                        padding: EdgeInsets.only(top: 35.0, bottom: 10),
                         child: Text(
                           "Account No.",
                           style: TextStyle(
@@ -148,9 +166,13 @@ class Profile extends StatelessWidget {
                             borderRadius: BorderRadius.circular(50),
                           ),
                         ),
+                        onChanged: (value) => {
+                          onUpdate = 1,
+                          setState(() {}),
+                        },
                       ),
                       Padding(
-                        padding: EdgeInsets.only(top: 35.0),
+                        padding: EdgeInsets.only(top: 35.0, bottom: 10),
                         child: Text(
                           "Re-enter Account no:",
                           style: TextStyle(
@@ -166,9 +188,13 @@ class Profile extends StatelessWidget {
                             borderRadius: BorderRadius.circular(50),
                           ),
                         ),
+                        onChanged: (value) => {
+                          onUpdate = 1,
+                          setState(() {}),
+                        },
                       ),
                       Padding(
-                        padding: EdgeInsets.only(top: 35.0),
+                        padding: EdgeInsets.only(top: 35.0, bottom: 10),
                         child: Text(
                           "IFSC Code:",
                           style: TextStyle(
@@ -184,37 +210,60 @@ class Profile extends StatelessWidget {
                             borderRadius: BorderRadius.circular(50),
                           ),
                         ),
+                        onChanged: (value) => {
+                          onUpdate = 1,
+                          setState(() {}),
+                        },
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 20.0),
-                        child: SizedBox(
-                          height: 40,
-                          width: 100,
-                          child: Card(
-                            elevation: 5,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10),
-                            ),
+                      Center(
+                        child: Padding(
+                          padding: const EdgeInsets.only(top: 20.0, bottom: 10),
+                          child: SizedBox(
+                            height: 50,
+                            width: 200,
                             child: InkWell(
-                              onTap: () {},
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10),
-                                  color: Colors.red,
-                                ),
-                                child: Center(
-                                  child: Padding(
-                                    padding: const EdgeInsets.only(left: 8.0),
-                                    child: Text(
-                                      "Update",
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
+                                onTap: () {
+                                  onUpdate = 0;
+                                  setState(() {});
+                                },
+                                child: onUpdate == 0
+                                    ? Container(
+                                        decoration: BoxDecoration(
+                                          border: Border.all(
+                                            color: Colors.red,
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                        ),
+                                        child: Center(
+                                          child: Text(
+                                            "Update",
+                                            style: TextStyle(
+                                                color: Colors.red,
+                                                fontSize: 18,
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                        ),
+                                      )
+                                    : Container(
+                                        decoration: BoxDecoration(
+                                          border: Border.all(
+                                            color: Colors.red,
+                                          ),
+                                          color: Colors.red,
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                        ),
+                                        child: Center(
+                                          child: Text(
+                                            "Update",
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 18,
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                        ),
+                                      )),
                           ),
                         ),
                       ),

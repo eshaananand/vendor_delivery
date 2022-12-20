@@ -78,7 +78,7 @@ class _SavedAddressState extends State<SavedAddress> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     SizedBox(
-                      height: 50,
+                      height: 20,
                     ),
                     Container(
                       decoration: BoxDecoration(

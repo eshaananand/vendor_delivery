@@ -49,110 +49,112 @@ class _MyTeamState extends State<MyTeam> {
 
     return SafeArea(
       child: Scaffold(
-        body: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              SizedBox(
-                height: 50,
-              ),
-              Container(
-                height: h(0.058),
-                decoration: BoxDecoration(
-                  boxShadow: kElevationToShadow[4],
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(25),
+        body: SingleChildScrollView(
+          child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                SizedBox(
+                  height: 20,
                 ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Row(
-                      children: [
-                        SizedBox(
-                          width: 10,
-                        ),
-                        IconButton(
-                          onPressed: () {},
-                          icon: Icon(
-                            Icons.arrow_back,
-                            size: 30,
-                            color: Colors.red,
+                Container(
+                  height: h(0.058),
+                  decoration: BoxDecoration(
+                    boxShadow: kElevationToShadow[4],
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(25),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Row(
+                        children: [
+                          SizedBox(
+                            width: 10,
                           ),
-                        ),
-                        Text(
-                          "My Team",
-                          style: TextStyle(
-                            fontSize: 18,
-                            color: Colors.red,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-              DefaultTabController(
-                length: 3,
-                child: SizedBox(
-                  width: w(1),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Container(
-                        padding: const EdgeInsets.all(8.0),
-                        width: w(1),
-                        height: h(0.8),
-                        child: ContainedTabBarView(
-                          tabBarProperties: TabBarProperties(
-                            indicatorColor: Colors.transparent,
-                            labelColor: Colors.red,
-                            padding: EdgeInsets.only(top: 16),
-                            unselectedLabelColor: HexColor("D3D0D0"),
-                            labelStyle: TextStyle(
-                              fontSize: 20,
+                          IconButton(
+                            onPressed: () {},
+                            icon: Icon(
+                              Icons.arrow_back,
+                              size: 30,
+                              color: Colors.red,
                             ),
                           ),
-                          callOnChangeWhileIndexIsChanging: true,
-                          onChange: (ind) {
-                            setState(() {
-                              index = ind;
-                            });
-                          },
-                          tabs: [
-                            Text(
-                              "Customer",
-                              style: TextStyle(
-                                  color: index != 0
-                                      ? HexColor("D3D0D0")
-                                      : Colors.red),
+                          Text(
+                            "My Team",
+                            style: TextStyle(
+                              fontSize: 18,
+                              color: Colors.red,
                             ),
-                            Text(
-                              "Vendor",
-                              style: TextStyle(
-                                  color: index != 1
-                                      ? HexColor("D3D0D0")
-                                      : Colors.red),
-                            ),
-                            Text(
-                              "Rider",
-                              style: TextStyle(
-                                  color: index != 2
-                                      ? HexColor("D3D0D0")
-                                      : Colors.red),
-                            ),
-                          ],
-                          views: [
-                            myTeam(),
-                            myTeam(),
-                            myTeam(),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
                     ],
                   ),
                 ),
-              )
-            ]),
+                DefaultTabController(
+                  length: 3,
+                  child: SizedBox(
+                    width: w(1),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Container(
+                          padding: const EdgeInsets.all(8.0),
+                          width: w(1),
+                          height: h(0.8),
+                          child: ContainedTabBarView(
+                            tabBarProperties: TabBarProperties(
+                              indicatorColor: Colors.transparent,
+                              labelColor: Colors.red,
+                              padding: EdgeInsets.only(top: 16),
+                              unselectedLabelColor: HexColor("D3D0D0"),
+                              labelStyle: TextStyle(
+                                fontSize: 20,
+                              ),
+                            ),
+                            callOnChangeWhileIndexIsChanging: true,
+                            onChange: (ind) {
+                              setState(() {
+                                index = ind;
+                              });
+                            },
+                            tabs: [
+                              Text(
+                                "Customer",
+                                style: TextStyle(
+                                    color: index != 0
+                                        ? HexColor("D3D0D0")
+                                        : Colors.red),
+                              ),
+                              Text(
+                                "Vendor",
+                                style: TextStyle(
+                                    color: index != 1
+                                        ? HexColor("D3D0D0")
+                                        : Colors.red),
+                              ),
+                              Text(
+                                "Rider",
+                                style: TextStyle(
+                                    color: index != 2
+                                        ? HexColor("D3D0D0")
+                                        : Colors.red),
+                              ),
+                            ],
+                            views: [
+                              myTeam(),
+                              myTeam(),
+                              myTeam(),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                )
+              ]),
+        ),
       ),
     );
   }

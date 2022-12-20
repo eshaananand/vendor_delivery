@@ -48,7 +48,7 @@ class _OtpState extends State<Otp> {
               //mainAxisAlignment: MainAxisAlignment.spaceBe,
               children: <Widget>[
                 SizedBox(
-                  height: 50,
+                  height: 20,
                 ),
                 Container(
                   decoration: BoxDecoration(

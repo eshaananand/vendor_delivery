@@ -50,7 +50,7 @@ class _AddItemState extends State<AddItem> {
           child: Column(
             children: [
               SizedBox(
-                height: 50,
+                height: 20,
               ),
               Container(
                 height: h(0.058),

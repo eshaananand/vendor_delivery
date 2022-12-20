@@ -51,7 +51,7 @@ class _EditItemState extends State<EditItem> {
           child: Column(
             children: [
               SizedBox(
-                height: 50,
+                height: 20,
               ),
               Container(
                 height: h(0.058),

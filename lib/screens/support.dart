@@ -37,7 +37,7 @@ class Support extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
-                height: 50,
+                height: 20,
               ),
               Container(
                 decoration: BoxDecoration(

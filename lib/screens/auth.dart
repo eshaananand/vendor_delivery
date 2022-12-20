@@ -47,7 +47,7 @@ class _AuthState extends State<Auth> {
               //mainAxisAlignment: MainAxisAlignment.spaceBe,
               children: <Widget>[
                 SizedBox(
-                  height: 50,
+                  height: 20,
                 ),
                 Container(
                   decoration: BoxDecoration(
@@ -344,34 +344,34 @@ class _AuthState extends State<Auth> {
                       SizedBox(
                         height: 10,
                       ),
-                      Divider(
-                        thickness: 5,
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Text(
-                        "Shop Docs",
-                        style: TextStyle(
-                          fontSize: 18,
-                        ),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Container(
-                          height: 200,
-                          width: double.infinity,
-                          decoration: BoxDecoration(
-                            border: Border.all(),
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          child: Center(
-                            child: IconButton(
-                              onPressed: () {},
-                              icon: Icon(Icons.add, size: 35),
-                            ),
-                          ))
+                      // Divider(
+                      //   thickness: 5,
+                      // ),
+                      // SizedBox(
+                      //   height: 10,
+                      // ),
+                      // Text(
+                      //   "Shop Docs",
+                      //   style: TextStyle(
+                      //     fontSize: 18,
+                      //   ),
+                      // ),
+                      // SizedBox(
+                      //   height: 10,
+                      // ),
+                      // Container(
+                      //     height: 200,
+                      //     width: double.infinity,
+                      //     decoration: BoxDecoration(
+                      //       border: Border.all(),
+                      //       borderRadius: BorderRadius.circular(10),
+                      //     ),
+                      //     child: Center(
+                      //       child: IconButton(
+                      //         onPressed: () {},
+                      //         icon: Icon(Icons.add, size: 35),
+                      //       ),
+                      //     ))
                     ],
                   ),
                 ),

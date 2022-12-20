@@ -70,7 +70,7 @@ class SelectPayment extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             SizedBox(
-              height: 50,
+              height: 20,
             ),
             Container(
               height: h(0.058),

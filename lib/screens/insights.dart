@@ -30,7 +30,7 @@ class _InsightsState extends State<Insights> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               SizedBox(
-                height: 50,
+                height: 20,
               ),
               Container(
                 //
@@ -154,7 +154,7 @@ class _InsightsState extends State<Insights> {
                                 Padding(
                                   padding: const EdgeInsets.only(top: 8.0),
                                   child: Text(
-                                    "Items Sold",
+                                    "Distance",
                                     style: TextStyle(
                                       // fontSize: 20,
                                       fontWeight: FontWeight.w400,

@@ -292,7 +292,7 @@ class _TrackLocationState extends State<TrackLocation> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
-                height: 50,
+                height: 20,
               ),
               Container(
                 height: h(0.058),
