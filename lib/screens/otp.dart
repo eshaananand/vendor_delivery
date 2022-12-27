@@ -106,14 +106,18 @@ class _OtpState extends State<Otp> {
                     ),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(20.0),
-                  child: Text(
-                    "Resend",
-                    style: TextStyle(
-                        color: Colors.red,
-                        fontSize: 15,
-                        fontWeight: FontWeight.bold),
+                InkWell(
+                  onTap: () {},
+                  child: Padding(
+                    padding: const EdgeInsets.only(
+                        left: 20.0, top: 20, bottom: 10, right: 20),
+                    child: Text(
+                      "Resend",
+                      style: TextStyle(
+                          color: Colors.red,
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold),
+                    ),
                   ),
                 ),
                 Padding(

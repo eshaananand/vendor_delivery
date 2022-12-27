@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vendor_delivery/screens/adminVerify.dart';
 import 'package:vendor_delivery/screens/home.dart';
 import 'package:vendor_delivery/screens/login1.dart';
 import 'package:vendor_delivery/screens/traclkLocation.dart';
@@ -13,13 +14,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.red,
-      ),
-      home: LoginPage1(),
-      // home: TrackLocation(),
-    );
+        debugShowCheckedModeBanner: false,
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.red,
+        ),
+        // home: LoginPage1(),
+        // home: TrackLocation(),
+        home: AdminVerify());
   }
 }

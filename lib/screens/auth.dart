@@ -3,6 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:vendor_delivery/screens/location.dart';
 
+import 'home.dart';
+
 class Auth extends StatefulWidget {
   const Auth({Key? key}) : super(key: key);
 
@@ -22,7 +24,7 @@ class _AuthState extends State<Auth> {
           child: InkWell(
             onTap: () {
               Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => Location()));
+                  context, MaterialPageRoute(builder: (context) => Home()));
             },
             child: SizedBox(
               height: kToolbarHeight,
@@ -71,7 +73,7 @@ class _AuthState extends State<Auth> {
                         "Validiation Form",
                         style: TextStyle(
                           fontSize: 18,
-                          fontWeight: FontWeight.bold,
+                          // fontWeight: FontWeight.bold,
                           color: Colors.red,
                         ),
                       ),
@@ -211,6 +213,34 @@ class _AuthState extends State<Auth> {
                             contentPadding: EdgeInsets.only(
                                 left: 15, bottom: 11, top: 11, right: 15),
                             hintText: "Enter your Vehicle Number",
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: const BorderSide(
+                                  color: Colors.black, width: 2.0),
+                              borderRadius: BorderRadius.circular(10.0),
+                            ),
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.black),
+                              borderRadius: BorderRadius.circular(25.0),
+                            )),
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      Text(
+                        "License No.:",
+                        style: TextStyle(color: Colors.red, fontSize: 15),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      TextFormField(
+                        validator: (value) =>
+                            value!.isEmpty ? 'Enter your License Number' : null,
+                        style: TextStyle(color: Colors.black),
+                        decoration: InputDecoration(
+                            contentPadding: EdgeInsets.only(
+                                left: 15, bottom: 11, top: 11, right: 15),
+                            hintText: "Enter your License Number",
                             focusedBorder: OutlineInputBorder(
                               borderSide: const BorderSide(
                                   color: Colors.black, width: 2.0),

@@ -86,7 +86,7 @@ class _MyEarningState extends State<MyEarning> {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Padding(
-                          padding: EdgeInsets.only(top: 30.0),
+                          padding: EdgeInsets.only(top: 30.0, bottom: 5),
                           child: Text(
                             "My Earning",
                             style: TextStyle(fontSize: 22),

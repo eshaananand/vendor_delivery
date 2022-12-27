@@ -176,7 +176,7 @@ class LoginPage2 extends StatelessWidget {
                     height: 300,
                     decoration: BoxDecoration(
                         image: DecorationImage(
-                      image: AssetImage("assets/login in.png"),
+                      image: AssetImage("assets/loginIn.png"),
                     )),
                   )
                 ],

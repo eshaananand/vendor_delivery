@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar_v2/persistent-tab-view.dart';
 import 'package:vendor_delivery/screens/profile.dart';
@@ -9,6 +10,7 @@ import 'package:vendor_delivery/screens/wallet.dart';
 
 import 'insights.dart';
 import 'my_earning.dart';
+import 'orderHistory.dart';
 
 class DrawerWidget extends StatelessWidget {
   const DrawerWidget({Key? key}) : super(key: key);
@@ -107,11 +109,11 @@ class DrawerWidget extends StatelessWidget {
               );
             },
           ),
-          accountSettingsImage(
-            icon: "assets/reviews.png",
-            name: "Reviews",
+          accountSettingsIcon(
+            icon: CupertinoIcons.cube_box,
+            name: "Orders",
             onTap: () {
-              pushNewScreen(context, screen: Reviews(), withNavBar: false);
+              pushNewScreen(context, screen: OrderHistory(), withNavBar: false);
             },
           ),
           accountSettingsIcon(

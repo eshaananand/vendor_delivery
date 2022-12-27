@@ -53,7 +53,7 @@ class Support extends StatelessWidget {
                       },
                       icon: Icon(
                         Icons.arrow_back,
-                        size: 20,
+                        size: 30,
                         color: Colors.red,
                       ),
                     ),
@@ -89,116 +89,132 @@ class Support extends StatelessWidget {
                   ),
                 ),
               ),
-              Container(
-                width: MediaQuery.of(context).size.width,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Text(
-                      "Call on our customer support number or \nWrite us your query ",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
+              Padding(
+                padding: EdgeInsets.only(left: 30.0),
+                child: SizedBox(
+                  width: MediaQuery.of(context).size.width * 0.9,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Call on our customer support number \nor write us your query ",
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: Color.fromARGB(191, 0, 0, 0),
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
-                    ),
-                    Container(
-                      width: 250,
-                      padding: EdgeInsets.only(top: 20),
-                      decoration: BoxDecoration(),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Icon(Icons.call, color: Colors.red),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    "  CONTACT NUMBER",
-                                    style: TextStyle(
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.w400,
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(top: 8.0),
-                                    child: Text(
-                                      "  +91 123456890",
-                                      style: TextStyle(
-                                        color: Colors.grey,
-                                      ),
-                                    ),
-                                  )
-                                ],
-                              )
-                            ],
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(top: 20.0),
-                            child: Column(
+                      Container(
+                        width: MediaQuery.of(context).size.width,
+                        padding: EdgeInsets.only(top: 20),
+                        decoration: BoxDecoration(),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Row(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
+                                Icon(Icons.call, color: Colors.red),
+                                Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Padding(
-                                      padding: EdgeInsets.only(right: 8.0),
-                                      child: Icon(Icons.message,
-                                          color: Colors.red),
-                                    ),
                                     Text(
-                                      "  YOUR MESSAGE",
+                                      "  Contact Number",
                                       style: TextStyle(
                                         fontSize: 20,
-                                        fontWeight: FontWeight.w400,
+                                        // fontWeight: FontWeight.bold,
                                       ),
                                     ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(top: 8.0),
+                                      child: Text(
+                                        "  +91 123456890",
+                                        style: TextStyle(
+                                          color: Color.fromARGB(
+                                              255, 109, 109, 109),
+                                        ),
+                                      ),
+                                    )
                                   ],
-                                ),
-                                Padding(
-                                  padding:
-                                      const EdgeInsets.only(left: 40, top: 8),
-                                  child: SizedBox(
-                                    width: 200,
-                                    child: TextFormField(
-                                      style: TextStyle(fontSize: 16.0),
-                                      decoration: InputDecoration(
-                                        contentPadding:
-                                            const EdgeInsets.symmetric(
-                                                vertical: 14.0),
-                                        border: InputBorder.none,
-                                        hintText: "  Enter your message here ",
-                                        fillColor: HexColor("D9D9D9")
-                                            .withOpacity(0.46),
-                                        filled: true,
+                                )
+                              ],
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(top: 20.0),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsets.only(right: 8.0),
+                                        child: Icon(Icons.message,
+                                            color: Colors.red),
+                                      ),
+                                      Text(
+                                        "  Your Message",
+                                        style: TextStyle(
+                                          fontSize: 20,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Padding(
+                                    padding:
+                                        const EdgeInsets.only(left: 40, top: 8),
+                                    child: Material(
+                                      elevation: 5,
+                                      child: Container(
+                                        width: 250,
+                                        decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(20)),
+                                        child: TextFormField(
+                                          style: TextStyle(fontSize: 16.0),
+                                          decoration: InputDecoration(
+                                            contentPadding:
+                                                const EdgeInsets.symmetric(
+                                                    vertical: 14.0),
+                                            border: InputBorder.none,
+                                            hintText:
+                                                "  Enter your message here ",
+                                            fillColor: HexColor("D9D9D9")
+                                                .withOpacity(0.46),
+                                            filled: true,
+                                          ),
+                                        ),
                                       ),
                                     ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 20),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image.asset("assets/whastapp.png"),
-                          Text("  CONTACT US USING WHATSAPP"),
-                        ],
-                      ),
-                    )
-                  ],
+                      Padding(
+                        padding: const EdgeInsets.only(top: 20),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Image.asset(
+                              "assets/whastapp.png",
+                              height: 30,
+                            ),
+                            Text("  Contact Us on Whastapp",
+                                style: TextStyle(fontSize: 20)),
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
                 ),
               )
             ],

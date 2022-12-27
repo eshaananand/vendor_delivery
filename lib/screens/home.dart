@@ -25,6 +25,8 @@ class _HomeState extends State<Home> {
   String currentStatus = "Offline";
   String statusChangesTo = "Online";
 
+  int star = 3; //1 <= star <= 5 , tells the number of star of the driver
+
   final GlobalKey<ScaffoldState> _key = GlobalKey<ScaffoldState>();
 
   @override
@@ -79,7 +81,8 @@ class _HomeState extends State<Home> {
                                   ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.only(top: 5.0),
+                                  padding:
+                                      const EdgeInsets.only(top: 5.0, left: 2),
                                   child: Text(
                                     "swaymverma@gmail.com",
                                     style: TextStyle(
@@ -88,6 +91,43 @@ class _HomeState extends State<Home> {
                                         color: Colors.black.withOpacity(0.57)),
                                   ),
                                 ),
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 7.0),
+                                  child: Row(
+                                    children: [
+                                      Icon(
+                                        Icons.star,
+                                        color: star >= 1
+                                            ? Colors.red
+                                            : Colors.grey,
+                                      ),
+                                      Icon(
+                                        Icons.star,
+                                        color: star >= 2
+                                            ? Colors.red
+                                            : Colors.grey,
+                                      ),
+                                      Icon(
+                                        Icons.star,
+                                        color: star >= 3
+                                            ? Colors.red
+                                            : Colors.grey,
+                                      ),
+                                      Icon(
+                                        Icons.star,
+                                        color: star >= 4
+                                            ? Colors.red
+                                            : Colors.grey,
+                                      ),
+                                      Icon(
+                                        Icons.star,
+                                        color: star >= 5
+                                            ? Colors.red
+                                            : Colors.grey,
+                                      ),
+                                    ],
+                                  ),
+                                )
                               ],
                             ),
                           ],
