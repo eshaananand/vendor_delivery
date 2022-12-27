@@ -19,8 +19,9 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.red,
         ),
-        // home: LoginPage1(),
+        home: LoginPage1()
         // home: TrackLocation(),
-        home: AdminVerify());
+        // home: AdminVerify()
+        );
   }
 }
