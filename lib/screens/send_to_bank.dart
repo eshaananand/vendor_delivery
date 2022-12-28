@@ -79,11 +79,11 @@ class _SendBankState extends State<SendBank> {
                     ImageIcon(
                       AssetImage("assets/user_profile.png"),
                       color: Colors.red,
-                      size: h(0.3),
+                      size: h(0.1),
                     ),
                     Text(
-                      "Enter Amount",
-                      style: TextStyle(fontSize: 25),
+                      "Yout balance Rs. 0",
+                      style: TextStyle(fontSize: 15),
                     ),
                     // Padding(
                     //   padding: EdgeInsets.only(top: 30.0, bottom: 30),
@@ -95,24 +95,198 @@ class _SendBankState extends State<SendBank> {
                     //         fontWeight: FontWeight.bold),
                     //   ),
                     // ),
-                    Container(
-                      width: w(0.3),
-                      child: TextFormField(
-                        style: TextStyle(
-                          fontSize: 30,
-                          color: Colors.red,
-                          fontWeight: FontWeight.bold,
-                        ),
-                        keyboardType: TextInputType.number,
-                        decoration: InputDecoration(
-                          border: InputBorder.none,
-                          hintText: "Rs 500",
-                          hintStyle: TextStyle(
-                            fontSize: 30,
-                            color: Colors.red,
-                            fontWeight: FontWeight.bold,
+                    // Container(
+                    //   width: w(0.3),
+                    //   child: TextFormField(
+                    //     style: TextStyle(
+                    //       fontSize: 30,
+                    //       color: Colors.red,
+                    //       fontWeight: FontWeight.bold,
+                    //     ),
+                    //     keyboardType: TextInputType.number,
+                    //     decoration: InputDecoration(
+                    //       border: InputBorder.none,
+                    //       hintText: "Rs 500",
+                    //       hintStyle: TextStyle(
+                    //         fontSize: 30,
+                    //         color: Colors.red,
+                    //         fontWeight: FontWeight.bold,
+                    //       ),
+                    //     ),
+                    //   ),
+                    // ),
+                    Padding(
+                      padding: const EdgeInsets.all(18.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.only(bottom: 10),
+                            child: Text(
+                              "Name:",
+                              style: TextStyle(
+                                color: Colors.red,
+                                fontSize: 17,
+                              ),
+                            ),
                           ),
-                        ),
+                          TextFormField(
+                            decoration: InputDecoration(
+                              hintText: "Enter your name",
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(50),
+                              ),
+                            ),
+                            onChanged: (value) => {
+                              setState(() {}),
+                            },
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(18, 0, 18, 18),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.only(bottom: 10),
+                            child: Text(
+                              "Account number:",
+                              style: TextStyle(
+                                color: Colors.red,
+                                fontSize: 17,
+                              ),
+                            ),
+                          ),
+                          TextFormField(
+                            decoration: InputDecoration(
+                              hintText: "Enter your account number",
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(50),
+                              ),
+                            ),
+                            onChanged: (value) => {
+                              setState(() {}),
+                            },
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(18, 0, 18, 10),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.only(bottom: 10),
+                            child: Text(
+                              "IFSC Code:",
+                              style: TextStyle(
+                                color: Colors.red,
+                                fontSize: 17,
+                              ),
+                            ),
+                          ),
+                          TextFormField(
+                            decoration: InputDecoration(
+                              hintText: "Enter your IFSC code",
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(50),
+                              ),
+                            ),
+                            onChanged: (value) => {
+                              setState(() {}),
+                            },
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(18, 0, 18, 10),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.only(bottom: 10),
+                            child: Text(
+                              "Bank Name:",
+                              style: TextStyle(
+                                color: Colors.red,
+                                fontSize: 17,
+                              ),
+                            ),
+                          ),
+                          TextFormField(
+                            decoration: InputDecoration(
+                              hintText: "Enter your Bank name",
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(50),
+                              ),
+                            ),
+                            onChanged: (value) => {
+                              setState(() {}),
+                            },
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(18, 0, 18, 10),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.only(bottom: 10),
+                            child: Text(
+                              "Phone number:",
+                              style: TextStyle(
+                                color: Colors.red,
+                                fontSize: 17,
+                              ),
+                            ),
+                          ),
+                          TextFormField(
+                            decoration: InputDecoration(
+                              hintText: "Enter your phone number",
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(50),
+                              ),
+                            ),
+                            onChanged: (value) => {
+                              setState(() {}),
+                            },
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(18, 0, 18, 10),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.only(bottom: 10),
+                            child: Text(
+                              "Amount:",
+                              style: TextStyle(
+                                color: Colors.red,
+                                fontSize: 17,
+                              ),
+                            ),
+                          ),
+                          TextFormField(
+                            decoration: InputDecoration(
+                              hintText: "Enter your amount",
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(50),
+                              ),
+                            ),
+                            onChanged: (value) => {
+                              setState(() {}),
+                            },
+                          ),
+                        ],
                       ),
                     ),
                     InkWell(
