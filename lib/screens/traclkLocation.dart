@@ -452,7 +452,7 @@ class _TrackLocationState extends State<TrackLocation> {
               //   ),
               // ),
               Padding(
-                padding: EdgeInsets.symmetric(vertical: h(0.05)),
+                padding: EdgeInsets.only(top: h(0.05)),
                 child: Container(
                   height: h(0.45),
                   width: w(1),

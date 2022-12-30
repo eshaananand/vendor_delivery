@@ -2,8 +2,8 @@
 
 import 'package:flutter/material.dart';
 
-class Reviews extends StatelessWidget {
-  Reviews({Key? key}) : super(key: key);
+class Orders extends StatelessWidget {
+  Orders({Key? key}) : super(key: key);
 
   List<String> name = [
     "Swayam Verma",
@@ -61,7 +61,7 @@ class Reviews extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          "Reviews",
+                          "Orders",
                           style: TextStyle(
                             fontSize: 18,
                             color: Colors.red,

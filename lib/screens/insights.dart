@@ -18,6 +18,10 @@ class _InsightsState extends State<Insights> {
 
   String selectedFromDropDown = "Today";
 
+  String filterText = "Recent";
+
+  int modelBottomSheetSelectedButton = 1;
+
   @override
   Widget build(BuildContext context) {
     double h = MediaQuery.of(context).size.height;
@@ -63,46 +67,135 @@ class _InsightsState extends State<Insights> {
                             color: Colors.red,
                           ),
                         ),
-                        Padding(
-                          padding: EdgeInsets.only(left: w * 0.25),
-                          child: Container(
-                            padding: EdgeInsets.only(left: 2),
-                            decoration: BoxDecoration(
-                              color: Colors.red,
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                            width: 110,
-                            height: 30,
-                            child: DropdownSearch<String>(
-                              popupProps: PopupProps.menu(
-                                // constraints: BoxConstraints(maxHeight: 200),
-                                showSelectedItems: true,
-                                fit: FlexFit.loose,
-                              ),
-                              items: [
-                                "Today",
-                                "Last Week",
-                                "Last Month",
-                                'Last Year'
-                              ],
-                              dropdownDecoratorProps: DropDownDecoratorProps(
-                                dropdownSearchDecoration: InputDecoration(
-                                  suffixIconColor: Colors.white,
-                                  labelStyle: TextStyle(
-                                    color: Colors.white,
-                                  ),
-                                  border: InputBorder.none,
-                                  labelText: selectedFromDropDown,
-                                ),
-                              ),
-                              onChanged: (value) {
-                                selectedFromDropDown = value!;
-                                setState(() {});
-                              },
-                            ),
-                          ),
-                        )
                       ],
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(right: 20.0, top: 5),
+                      child: InkWell(
+                        onTap: () {
+                          showModalBottomSheet<void>(
+                            context: context,
+                            builder: (
+                              BuildContext context,
+                            ) {
+                              return StatefulBuilder(builder:
+                                  (BuildContext context, StateSetter set) {
+                                return SizedBox(
+                                  height: h * 0.3,
+                                  child: Center(
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: <Widget>[
+                                        Row(
+                                          children: [
+                                            IconButton(
+                                              icon: modelBottomSheetSelectedButton ==
+                                                      1
+                                                  ? Icon(
+                                                      Icons
+                                                          .radio_button_checked,
+                                                      color: Colors.red)
+                                                  : Icon(Icons.circle_outlined),
+                                              onPressed: () {
+                                                set(() {
+                                                  filterText = "Recent";
+                                                  modelBottomSheetSelectedButton =
+                                                      1;
+                                                });
+                                                setState(() {});
+                                              },
+                                            ),
+                                            Text("Recent")
+                                          ],
+                                        ),
+                                        Row(
+                                          children: [
+                                            IconButton(
+                                              icon: modelBottomSheetSelectedButton ==
+                                                      2
+                                                  ? Icon(
+                                                      Icons
+                                                          .radio_button_checked,
+                                                      color: Colors.red)
+                                                  : Icon(Icons.circle_outlined),
+                                              onPressed: () {
+                                                set(() {
+                                                  filterText = "Past Week";
+                                                  modelBottomSheetSelectedButton =
+                                                      2;
+                                                });
+                                                setState(() {});
+                                              },
+                                            ),
+                                            Text("Past Week")
+                                          ],
+                                        ),
+                                        Row(
+                                          children: [
+                                            IconButton(
+                                              icon: modelBottomSheetSelectedButton ==
+                                                      3
+                                                  ? Icon(
+                                                      Icons
+                                                          .radio_button_checked,
+                                                      color: Colors.red)
+                                                  : Icon(Icons.circle_outlined),
+                                              onPressed: () {
+                                                set(() {
+                                                  filterText = "Past Month";
+                                                  modelBottomSheetSelectedButton =
+                                                      3;
+                                                });
+                                                setState(() {});
+                                              },
+                                            ),
+                                            Text("Past Month")
+                                          ],
+                                        ),
+                                        Row(
+                                          children: [
+                                            IconButton(
+                                              icon:
+                                                  modelBottomSheetSelectedButton ==
+                                                          4
+                                                      ? Icon(
+                                                          Icons
+                                                              .radio_button_checked,
+                                                          color: Colors.red,
+                                                        )
+                                                      : Icon(Icons
+                                                          .circle_outlined),
+                                              onPressed: () {
+                                                set(() {
+                                                  filterText = "Past Year";
+                                                  modelBottomSheetSelectedButton =
+                                                      4;
+                                                });
+                                                setState(() {});
+                                              },
+                                            ),
+                                            Text("Past Year")
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                );
+                              });
+                            },
+                          );
+                        },
+                        child: SizedBox(
+                          height: 40,
+                          width: 40,
+                          child: Image.asset(
+                            "assets/mi_filter.png",
+                            color: Color.fromARGB(255, 252, 88, 88),
+                          ),
+                        ),
+                      ),
                     ),
                   ],
                 ),

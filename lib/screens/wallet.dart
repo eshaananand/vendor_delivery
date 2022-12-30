@@ -411,7 +411,7 @@ class _WalletState extends State<Wallet> {
                                         fontWeight: FontWeight.bold,
                                         color: earningStatus[index] == "Earning"
                                             ? Colors.red
-                                            : HexColor("#9A0909"),
+                                            : Colors.red,
                                       ),
                                     ),
                                     Padding(

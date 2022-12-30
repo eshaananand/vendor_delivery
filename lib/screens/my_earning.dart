@@ -1,7 +1,8 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
-import 'package:persistent_bottom_nav_bar_v2/persistent-tab-view.dart';
+import 'package:provider/provider.dart';
+import 'package:vendor_delivery/api_providers/user_data_provider.dart';
 
 class MyEarning extends StatefulWidget {
   MyEarning({Key? key}) : super(key: key);
@@ -12,6 +13,8 @@ class MyEarning extends StatefulWidget {
 
 class _MyEarningState extends State<MyEarning> {
 //Controls string below send to back
+
+  late UserDataProvider userDataProvider;
   String filterText = "Recent";
 
   int modelBottomSheetSelectedButton = 1;
@@ -20,6 +23,13 @@ class _MyEarningState extends State<MyEarning> {
   List<String> date = ["24 August"];
   List<String> time = ["11:00am"];
   List<String> amount = ["200"];
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    userDataProvider = Provider.of<UserDataProvider>(context, listen: false);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -86,29 +96,24 @@ class _MyEarningState extends State<MyEarning> {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Padding(
-                          padding: EdgeInsets.only(top: 30.0),
+                          padding: EdgeInsets.only(top: 30.0, bottom: 5),
                           child: Text(
                             "My Earning",
                             style: TextStyle(fontSize: 22),
                           ),
                         ),
                         Text(
-                          "Rs 500",
-                          style: TextStyle(
-                              fontSize: 30,
-                              color: Colors.red,
-                              fontWeight: FontWeight.bold),
+                          "Rs ${userDataProvider.myEarnings}",
+                          style: TextStyle(fontSize: 30, color: Colors.red, fontWeight: FontWeight.bold),
                         ),
                         Padding(
-                          padding: EdgeInsets.symmetric(
-                              horizontal: w(0.07), vertical: h(0.07)),
+                          padding: EdgeInsets.symmetric(horizontal: w(0.07), vertical: h(0.07)),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
                                     filterText,
@@ -125,36 +130,24 @@ class _MyEarningState extends State<MyEarning> {
                                         builder: (
                                           BuildContext context,
                                         ) {
-                                          return StatefulBuilder(builder:
-                                              (BuildContext context,
-                                                  StateSetter set) {
+                                          return StatefulBuilder(builder: (BuildContext context, StateSetter set) {
                                             return SizedBox(
                                               height: h(0.3),
                                               child: Center(
                                                 child: Column(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.center,
-                                                  mainAxisSize:
-                                                      MainAxisSize.min,
+                                                  mainAxisAlignment: MainAxisAlignment.center,
+                                                  mainAxisSize: MainAxisSize.min,
                                                   children: <Widget>[
                                                     Row(
                                                       children: [
                                                         IconButton(
-                                                          icon: modelBottomSheetSelectedButton ==
-                                                                  1
-                                                              ? Icon(
-                                                                  Icons
-                                                                      .radio_button_checked,
-                                                                  color: Colors
-                                                                      .red)
-                                                              : Icon(Icons
-                                                                  .circle_outlined),
+                                                          icon: modelBottomSheetSelectedButton == 1
+                                                              ? Icon(Icons.radio_button_checked, color: Colors.red)
+                                                              : Icon(Icons.circle_outlined),
                                                           onPressed: () {
                                                             set(() {
-                                                              filterText =
-                                                                  "Recent";
-                                                              modelBottomSheetSelectedButton =
-                                                                  1;
+                                                              filterText = "Recent";
+                                                              modelBottomSheetSelectedButton = 1;
                                                             });
                                                             setState(() {});
                                                           },
@@ -165,21 +158,13 @@ class _MyEarningState extends State<MyEarning> {
                                                     Row(
                                                       children: [
                                                         IconButton(
-                                                          icon: modelBottomSheetSelectedButton ==
-                                                                  2
-                                                              ? Icon(
-                                                                  Icons
-                                                                      .radio_button_checked,
-                                                                  color: Colors
-                                                                      .red)
-                                                              : Icon(Icons
-                                                                  .circle_outlined),
+                                                          icon: modelBottomSheetSelectedButton == 2
+                                                              ? Icon(Icons.radio_button_checked, color: Colors.red)
+                                                              : Icon(Icons.circle_outlined),
                                                           onPressed: () {
                                                             set(() {
-                                                              filterText =
-                                                                  "Past Week";
-                                                              modelBottomSheetSelectedButton =
-                                                                  2;
+                                                              filterText = "Past Week";
+                                                              modelBottomSheetSelectedButton = 2;
                                                             });
                                                             setState(() {});
                                                           },
@@ -190,21 +175,13 @@ class _MyEarningState extends State<MyEarning> {
                                                     Row(
                                                       children: [
                                                         IconButton(
-                                                          icon: modelBottomSheetSelectedButton ==
-                                                                  3
-                                                              ? Icon(
-                                                                  Icons
-                                                                      .radio_button_checked,
-                                                                  color: Colors
-                                                                      .red)
-                                                              : Icon(Icons
-                                                                  .circle_outlined),
+                                                          icon: modelBottomSheetSelectedButton == 3
+                                                              ? Icon(Icons.radio_button_checked, color: Colors.red)
+                                                              : Icon(Icons.circle_outlined),
                                                           onPressed: () {
                                                             set(() {
-                                                              filterText =
-                                                                  "Past Month";
-                                                              modelBottomSheetSelectedButton =
-                                                                  3;
+                                                              filterText = "Past Month";
+                                                              modelBottomSheetSelectedButton = 3;
                                                             });
                                                             setState(() {});
                                                           },
@@ -215,22 +192,16 @@ class _MyEarningState extends State<MyEarning> {
                                                     Row(
                                                       children: [
                                                         IconButton(
-                                                          icon: modelBottomSheetSelectedButton ==
-                                                                  4
+                                                          icon: modelBottomSheetSelectedButton == 4
                                                               ? Icon(
-                                                                  Icons
-                                                                      .radio_button_checked,
-                                                                  color: Colors
-                                                                      .red,
+                                                                  Icons.radio_button_checked,
+                                                                  color: Colors.red,
                                                                 )
-                                                              : Icon(Icons
-                                                                  .circle_outlined),
+                                                              : Icon(Icons.circle_outlined),
                                                           onPressed: () {
                                                             set(() {
-                                                              filterText =
-                                                                  "Past Year";
-                                                              modelBottomSheetSelectedButton =
-                                                                  4;
+                                                              filterText = "Past Year";
+                                                              modelBottomSheetSelectedButton = 4;
                                                             });
                                                             setState(() {});
                                                           },
@@ -265,24 +236,18 @@ class _MyEarningState extends State<MyEarning> {
                                     return Padding(
                                         padding: EdgeInsets.only(top: 15.0),
                                         child: Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
+                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                           children: [
                                             Column(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.start,
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
+                                              mainAxisAlignment: MainAxisAlignment.start,
+                                              crossAxisAlignment: CrossAxisAlignment.start,
                                               children: [
                                                 Text(
                                                   type[index],
-                                                  style: TextStyle(
-                                                      fontWeight:
-                                                          FontWeight.bold),
+                                                  style: TextStyle(fontWeight: FontWeight.bold),
                                                 ),
                                                 Padding(
-                                                  padding:
-                                                      EdgeInsets.only(top: 8.0),
+                                                  padding: EdgeInsets.only(top: 8.0),
                                                   child: Text(
                                                     '${date[index]}, ${time[index]}',
                                                     style: TextStyle(
@@ -293,17 +258,12 @@ class _MyEarningState extends State<MyEarning> {
                                               ],
                                             ),
                                             Column(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.start,
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
+                                              mainAxisAlignment: MainAxisAlignment.start,
+                                              crossAxisAlignment: CrossAxisAlignment.start,
                                               children: [
                                                 Text(
                                                   "Rs ${amount[index]}",
-                                                  style: TextStyle(
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                      color: Colors.red),
+                                                  style: TextStyle(fontWeight: FontWeight.bold, color: Colors.red),
                                                 ),
                                               ],
                                             ),

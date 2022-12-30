@@ -1,19 +1,37 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar_v2/persistent-tab-view.dart';
+import 'package:provider/provider.dart';
+import 'package:vendor_delivery/api_providers/user_data_provider.dart';
+import 'package:vendor_delivery/api_providers/verify_otp_provider.dart';
 import 'package:vendor_delivery/screens/profile.dart';
 import 'package:vendor_delivery/screens/qrScan.dart';
 import 'package:vendor_delivery/screens/refer_and_earn.dart';
-import 'package:vendor_delivery/screens/reviews.dart';
 import 'package:vendor_delivery/screens/support.dart';
 import 'package:vendor_delivery/screens/wallet.dart';
 
 import 'insights.dart';
 import 'my_earning.dart';
+import 'orderHistory.dart';
 
-class DrawerWidget extends StatelessWidget {
+class DrawerWidget extends StatefulWidget {
   const DrawerWidget({Key? key}) : super(key: key);
 
   @override
+  State<DrawerWidget> createState() => _DrawerWidgetState();
+}
+
+class _DrawerWidgetState extends State<DrawerWidget> {
+  late UserDataProvider userDataProvider;
+  late VerifyOtpProvider verifyOtpProvider;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    userDataProvider = Provider.of<UserDataProvider>(context, listen: false);
+    verifyOtpProvider = Provider.of<VerifyOtpProvider>(context, listen: false);
+  }
+
   Widget build(BuildContext context) {
     double h(double height) {
       return MediaQuery.of(context).size.height * height;
@@ -23,10 +41,7 @@ class DrawerWidget extends StatelessWidget {
       return MediaQuery.of(context).size.width * width;
     }
 
-    Widget accountSettingsIcon(
-        {required String name,
-        required IconData icon,
-        GestureTapCallback? onTap}) {
+    Widget accountSettingsIcon({required String name, required IconData icon, GestureTapCallback? onTap}) {
       return InkWell(
         onTap: onTap,
         child: Padding(
@@ -41,8 +56,7 @@ class DrawerWidget extends StatelessWidget {
                     padding: const EdgeInsets.only(left: 15.0),
                     child: Text(
                       name,
-                      style: const TextStyle(
-                          fontSize: 18.0, fontWeight: FontWeight.w500),
+                      style: const TextStyle(fontSize: 18.0, fontWeight: FontWeight.w500),
                     ),
                   ),
                 ],
@@ -53,10 +67,7 @@ class DrawerWidget extends StatelessWidget {
       );
     }
 
-    Widget accountSettingsImage(
-        {required String name,
-        required String icon,
-        GestureTapCallback? onTap}) {
+    Widget accountSettingsImage({required String name, required String icon, GestureTapCallback? onTap}) {
       return InkWell(
         onTap: onTap,
         child: Padding(
@@ -71,8 +82,7 @@ class DrawerWidget extends StatelessWidget {
                     padding: const EdgeInsets.only(left: 15.0),
                     child: Text(
                       name,
-                      style: const TextStyle(
-                          fontSize: 18.0, fontWeight: FontWeight.w500),
+                      style: const TextStyle(fontSize: 18.0, fontWeight: FontWeight.w500),
                     ),
                   ),
                 ],
@@ -107,11 +117,11 @@ class DrawerWidget extends StatelessWidget {
               );
             },
           ),
-          accountSettingsImage(
-            icon: "assets/reviews.png",
-            name: "Reviews",
+          accountSettingsIcon(
+            icon: CupertinoIcons.cube_box,
+            name: "Orders",
             onTap: () {
-              pushNewScreen(context, screen: Reviews(), withNavBar: false);
+              pushNewScreen(context, screen: OrderHistory(), withNavBar: false);
             },
           ),
           accountSettingsIcon(
@@ -162,6 +172,11 @@ class DrawerWidget extends StatelessWidget {
             icon: "assets/cod.png",
             name: "My Earnings",
             onTap: () {
+              userDataProvider.getEarnings(
+                context: context,
+                ridersId: verifyOtpProvider.ridersId,
+                token: verifyOtpProvider.authToken,
+              );
               pushNewScreen(
                 context,
                 screen: MyEarning(),

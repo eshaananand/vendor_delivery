@@ -2,6 +2,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:provider/provider.dart';
+import 'package:vendor_delivery/api_providers/user_data_provider.dart';
+import 'package:vendor_delivery/api_providers/verify_otp_provider.dart';
 
 import 'drawer.dart';
 
@@ -24,8 +27,19 @@ class _HomeState extends State<Home> {
   bool isOnline = false;
   String currentStatus = "Offline";
   String statusChangesTo = "Online";
+  late UserDataProvider userDataProvider;
+  late VerifyOtpProvider verifyOtpProvider;
+
+  int star = 3; //1 <= star <= 5 , tells the number of star of the driver
 
   final GlobalKey<ScaffoldState> _key = GlobalKey<ScaffoldState>();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    userDataProvider = Provider.of<UserDataProvider>(context, listen: false);
+    verifyOtpProvider = Provider.of<VerifyOtpProvider>(context, listen: false);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -55,9 +69,7 @@ class _HomeState extends State<Home> {
                         ),
                         Row(
                           children: [
-                            SizedBox(
-                                height: 80,
-                                child: Image.asset("assets/user_profile.png")),
+                            SizedBox(height: 80, child: Image.asset("assets/user_profile.png")),
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
@@ -72,22 +84,43 @@ class _HomeState extends State<Home> {
                                   padding: const EdgeInsets.only(top: 15.0),
                                   child: Text(
                                     "+91 1234567890",
-                                    style: TextStyle(
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.black.withOpacity(0.57)),
+                                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: Colors.black.withOpacity(0.57)),
                                   ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.only(top: 5.0),
+                                  padding: const EdgeInsets.only(top: 5.0, left: 2),
                                   child: Text(
                                     "swaymverma@gmail.com",
-                                    style: TextStyle(
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.black.withOpacity(0.57)),
+                                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: Colors.black.withOpacity(0.57)),
                                   ),
                                 ),
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 7.0),
+                                  child: Row(
+                                    children: [
+                                      Icon(
+                                        Icons.star,
+                                        color: star >= 1 ? Colors.red : Colors.grey,
+                                      ),
+                                      Icon(
+                                        Icons.star,
+                                        color: star >= 2 ? Colors.red : Colors.grey,
+                                      ),
+                                      Icon(
+                                        Icons.star,
+                                        color: star >= 3 ? Colors.red : Colors.grey,
+                                      ),
+                                      Icon(
+                                        Icons.star,
+                                        color: star >= 4 ? Colors.red : Colors.grey,
+                                      ),
+                                      Icon(
+                                        Icons.star,
+                                        color: star >= 5 ? Colors.red : Colors.grey,
+                                      ),
+                                    ],
+                                  ),
+                                )
                               ],
                             ),
                           ],
@@ -144,13 +177,18 @@ class _HomeState extends State<Home> {
 
                               if (isOnline) {
                                 currentStatus = "Online";
+                                print('verifyOtpProvider.authToken is ${verifyOtpProvider.authToken}');
+                                userDataProvider.setOnlineStatus(
+                                    context: context, status: 'online', token: verifyOtpProvider.authToken, ridersId: verifyOtpProvider.ridersId);
                                 statusChangesTo = "Offline";
 
                                 setState(() {});
                               } else {
                                 statusChangesTo = "Online";
                                 currentStatus = "Offline";
-
+                                print('verifyOtpProvider.authToken is ${verifyOtpProvider.authToken}');
+                                userDataProvider.setOnlineStatus(
+                                    context: context, status: 'offline', token: verifyOtpProvider.authToken, ridersId: verifyOtpProvider.ridersId);
                                 setState(() {});
                               }
                             },
