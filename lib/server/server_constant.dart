@@ -19,5 +19,7 @@ class ServerConstant {
   static const String riderProfile = "profile";
   static const String updateRiderProfile = "updateProfile/";
   static const String getEarning = "getEarning/";
+  static const String transferToWallet = "transferToWallet/";
+  static const String payOutRequest = "payOutRequest/";
   // static const String profile = "profile";
 }

@@ -215,58 +215,6 @@ class _ProfileState extends State<Profile> {
                           setState(() {}),
                         },
                       ),
-                      Center(
-                        child: Padding(
-                          padding: const EdgeInsets.only(top: 20.0, bottom: 10),
-                          child: SizedBox(
-                            height: 50,
-                            width: 200,
-                            child: InkWell(
-                                onTap: () {
-                                  onUpdate = 0;
-                                  setState(() {});
-                                },
-                                child: onUpdate == 0
-                                    ? Container(
-                                        decoration: BoxDecoration(
-                                          border: Border.all(
-                                            color: Colors.red,
-                                          ),
-                                          borderRadius:
-                                              BorderRadius.circular(10),
-                                        ),
-                                        child: Center(
-                                          child: Text(
-                                            "Update",
-                                            style: TextStyle(
-                                                color: Colors.red,
-                                                fontSize: 18,
-                                                fontWeight: FontWeight.bold),
-                                          ),
-                                        ),
-                                      )
-                                    : Container(
-                                        decoration: BoxDecoration(
-                                          border: Border.all(
-                                            color: Colors.red,
-                                          ),
-                                          color: Colors.red,
-                                          borderRadius:
-                                              BorderRadius.circular(10),
-                                        ),
-                                        child: Center(
-                                          child: Text(
-                                            "Update",
-                                            style: TextStyle(
-                                                color: Colors.white,
-                                                fontSize: 18,
-                                                fontWeight: FontWeight.bold),
-                                          ),
-                                        ),
-                                      )),
-                          ),
-                        ),
-                      ),
                     ],
                   ),
                 ),
